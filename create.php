@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $stmt = db()->prepare("INSERT INTO categories(name, description) VALUES (?,?)");
             $stmt->execute([$name, $description]);
-            header("Location: index.php?msg=Thêm danh mục thành công");
+            header('Location: index.php');
             exit;
         } catch (PDOException $e) {
             if ($e->getCode() === '23000') {

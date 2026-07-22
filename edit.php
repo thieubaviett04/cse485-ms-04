@@ -14,6 +14,7 @@ $stmt->execute([$id]);
 $category = $stmt->fetch();
 
 if (!$category) {
+    http_response_code(404);
     die("Không tìm thấy danh mục.");
 }
 
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $updateStmt = db()->prepare('UPDATE categories SET name = ?, description = ? WHERE id = ?');
             $updateStmt->execute([$name, $description, $id]);
 
-            header('Location: index.php?msg=Sửa thành công');
+            header('Location: index.php');
             exit;
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
