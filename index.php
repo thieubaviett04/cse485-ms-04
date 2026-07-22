@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 
-$rows = db()->query('SELECT id, name, description, created_at FROM categories ORDER BY id DESC')->fetchAll();
+$rows = db()->query('SELECT id, name, description, created_at FROM categories ORDER BY id')->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -20,9 +20,7 @@ $rows = db()->query('SELECT id, name, description, created_at FROM categories OR
             </div>
         </header>
 
-        <?php if (isset($_GET['msg'])): ?>
-            <div class="alert-success"><?= htmlspecialchars($_GET['msg']) ?></div>
-        <?php endif; ?>
+
 
         <div class="table-card">
             <div class="table-title">

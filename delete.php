@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$id]);
     }
 
-    header('Location: index.php?msg=Xóa thành công');
+    header('Location: index.php');
     exit;
 } else {
     // Không cho phép gọi GET request tới file này
